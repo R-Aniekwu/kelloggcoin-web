@@ -5,9 +5,9 @@
 <%users = User.all.inspect%>
 <%for transaction in transactions %>
     <%if transaction["from_user_id"] != nil%>
-      <ol><li><%=transaction.inspect%></li></ol>
+      <ol><li><%="#{transaction["amount"]} from #{transaction["from_user_id"]} to #{transaction["to_user_id"]}"%></li></ol>
     <% else %>
-      <ol><%="Initial coin offering: #{transaction["amount"]} to #{transaction["to_user_id"]}" %></ol>
+      <ol><li><%="Initial coin offering: #{transaction["amount"]} to #{transaction["to_user_id"]}" %></li></ol>
     <%end%>
 <%end%>
 
