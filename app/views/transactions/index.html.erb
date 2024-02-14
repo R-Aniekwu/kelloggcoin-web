@@ -2,12 +2,20 @@
 
 <!-- Step 1: List all transactions, starting with the ICO -->
 <% transactions = Transaction.all%>
+<%users = User.all.inspect%>
 <%for transaction in transactions %>
-  <ol><li><%=transaction.inspect%></li></ol>
+    <%if transaction["from_user_id"] != nil%>
+      <ol><li><%=transaction.inspect%></li></ol>
+    <% else %>
+      <ol><%="Initial coin offering: #{transaction["amount"]} to #{transaction["to_user_id"]}" %></ol>
+    <%end%>
 <%end%>
 
 
 <!-- Step 2: Calculate and display the balances -->
+
+
+
 
 <!-- 
 Expected balances:
